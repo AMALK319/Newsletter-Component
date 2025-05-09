@@ -1,61 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
-  <link rel="stylesheet" href="./styles.css">
-</head>
-<body>
-  <div class="card">
-    <div class="card-form">
-      <h1>Stay updated!</h1>
-      <p>Join 60,000+ product managers receiving monthly updates on:</p>
+    <link rel="preload" href="./assets/images/illustration-sign-up-desktop.svg" as="image"/>
+    <link rel="preload" href="./assets/images/icon-list.svg" as="image" />
+    <link rel="preload" href="./assets/images/icon-success.svg" as="image" />
 
+    <title>
+      Frontend Mentor | Newsletter sign-up form with success message
+    </title>
 
-      <span>Product discovery and building what matters</span> 
-      <span>Measuring to ensure updates are a success</span> 
-      <span>And much more!</span> 
+    <link rel="stylesheet" href="./styles.css" media="print" onload="this.media='all'"/>
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <main class="container">
+      <div id="main-card" class="card">
+        <div class="card-form">
+          <h1>Stay updated!</h1>
+          <p>Join 60,000+ product managers receiving monthly updates on:</p>
+          <div class="card-list">
+            <p>
+              <img src="./assets/images/icon-list.svg" alt="icon-list" />Product
+              discovery and building what matters
+            </p>
+            <p>
+              <img
+                src="./assets/images/icon-list.svg"
+                alt="icon-list"
+              />Measuring to ensure updates are a success
+            </p>
+            <p>
+              <img src="./assets/images/icon-list.svg" alt="icon-list" />And
+              much more!
+            </p>
+          </div>
+          <form id="form" action="" novalidate>
+            <div class="before-email">
+              <label class="email-label text-blue" for="email"
+                >Email address</label
+              >
+              <span id="error" class="error text-red hidden"
+                >Valid email required!</span
+              >
+            </div>
+            <input
+              class="email-input"
+              type="email"
+              name="email"
+              placeholder="email@company.com"
+            />
+
+            <button class="submit-btn" type="submit">
+              Subscribe to monthly newsletter
+            </button>
+          </form>
+        </div>
+        <div class="card-image" role="img" aria-label="Illustration of sign-up process"></div>
+
+        
+      </div>
+      <!-- Success Card -->
+      <div id="success-card" class="success-card hidden">
+        <img src="assets/images/icon-success.svg" alt="" />
+        <h1>Thanks for subscribing!</h1>
+        <p>
+          A confirmation email has been sent to
+          <span id="submitted-email" class="submitted-email"></span>. Please
+          open it and click the button inside to confirm your subscription.
+        </p>
+        <button class="btn dismiss-btn">Dismiss message</button>
+      </div>
+    </main>
       
-      <form action="" novalidate>
-        <label for="email">Email address</label>
-        <input type="email" name="email" placeholder="  email@company.com">
-        <button type="submit"> Subscribe to monthly newsletter</button>
-      </form>
-    </div>
-    <div class="card-image"></div>
-  </div>
-
-  <!-- Sign-up form start -->
-
-  <!-- Stay updated!
-
-  Join 60,000+ product managers receiving monthly updates on:
-
-  Product discovery and building what matters
-  Measuring to ensure updates are a success
-  And much more!
-
-  Email address
-  email@company.com
-
-  Subscribe to monthly newsletter -->
-
-  <!-- Sign-up form end -->
-
-  <!-- Success message start -->
-
-  <!-- Thanks for subscribing!
-
-  A confirmation email has been sent to ash@loremcompany.com. 
-  Please open it and click the button inside to confirm your subscription.
-
-  Dismiss message
- -->
-
-</body>
+  </body>
 </html>

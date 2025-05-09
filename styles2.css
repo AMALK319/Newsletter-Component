@@ -1,0 +1,262 @@
+/* CSS Variables */
+:root {
+  --tomato: hsl(4, 100%, 67%);
+  --dark-slate-grey: hsl(234, 29%, 20%);
+  --charcoal-grey: hsl(235, 18%, 26%);
+  --grey: hsl(231, 7%, 60%);
+  --white: hsl(0, 0%, 100%);
+  --gradient-pink: #ff3e83;
+  --gradient-orange: #fd634a;
+  --gradient-shadow: rgba(255, 62, 131, 0.3);
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--charcoal-grey);
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+  color: var(--dark-slate-grey);
+  padding: 1.5rem;
+}
+
+/* Utility Classes */
+.hidden {
+  display: none !important;
+}
+
+.text-error {
+  color: var(--tomato);
+}
+
+/* Card Styles */
+.container {
+  width: 100%;
+  max-width: 58rem;
+  margin: 0 auto;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border-radius: 2rem;
+  background-color: var(--white);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
+}
+
+.card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 1rem 2rem 2rem;
+  gap: 1.5rem;
+}
+
+.card__title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.card__description {
+  font-size: 1rem;
+}
+
+.card__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.card__list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 1rem;
+}
+
+.card__list-item img {
+  margin-top: 0.125rem;
+}
+
+.card__image {
+  background-image: url('./assets/images/illustration-sign-up-desktop.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.75rem;
+}
+
+/* Form Styles */
+.card__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form__labels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__label {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.form__error {
+  font-size: 0.75rem;
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.form__error.show {
+  opacity: 1;
+}
+
+.form__input {
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--grey);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.form__input:focus {
+  outline: none;
+  border-color: var(--dark-slate-grey);
+  box-shadow: 0 0 0 1px var(--dark-slate-grey);
+}
+
+.form__input.error {
+  border-color: var(--tomato);
+  background-color: rgba(255, 98, 87, 0.1);
+  color: var(--tomato);
+}
+
+.form__submit {
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--dark-slate-grey);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.form__submit:hover,
+.form__submit:focus {
+  background: linear-gradient(90deg, var(--gradient-pink), var(--gradient-orange));
+  box-shadow: 0 0.5rem 1.5rem var(--gradient-shadow);
+}
+
+/* Success Card Styles */
+.success-card {
+  max-width: 31.25rem;
+  padding: 3rem;
+  border-radius: 2rem;
+  background-color: var(--white);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.success-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.success-card__title {
+  font-size: 3.5rem;
+  line-height: 1.1;
+}
+
+.success-card__message {
+  font-size: 1rem;
+}
+
+.success-card__dismiss {
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--dark-slate-grey);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.success-card__dismiss:hover,
+.success-card__dismiss:focus {
+  background: linear-gradient(90deg, var(--gradient-pink), var(--gradient-orange));
+  box-shadow: 0 0.5rem 1.5rem var(--gradient-shadow);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    padding: 0;
+    border-radius: 0;
+  }
+  
+  .card__image {
+    grid-row: 1;
+    min-height: 17.5rem;
+    border-radius: 0 0 1rem 1rem;
+    background-image: url('./assets/images/illustration-sign-up-mobile.svg');
+  }
+  
+  .card__content {
+    padding: 2rem 1.5rem;
+  }
+  
+  .card__title {
+    font-size: 2.5rem;
+  }
+  
+  .success-card {
+    min-height: 100vh;
+    border-radius: 0;
+    padding: 2rem 1.5rem;
+    justify-content: space-between;
+  }
+  
+  .success-card__title {
+    font-size: 2.5rem;
+  }
+  
+  .success-card__dismiss {
+    margin-top: auto;
+  }
+}
